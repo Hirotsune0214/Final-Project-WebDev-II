@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Login&Register</title>
+    <link rel="stylesheet" href="style.css" />
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+    <script src="index.js"></script>
+  </head>
+  <body>
+    <main>
+      <div class="container">
+        <h1>Login & Register</h1>
+        <div class="btn">
+          <!-- data-tab?? classと繋がっている? -->
+          <button data-tab="login" class="loginButton">Login</button>
+          <button data-tab="register" class="registerButton">Register</button>
+        </div>
+
+        <form id="login" class="">
+          <h2>Login form</h2>
+
+          <label for="loginEmail">Email: </label>
+          <input
+            type="text"
+            id="loginEmail"
+            name="loginEmail"
+            placeholder="Enter Email"
+          />
+          <span id="emailError" class="error"></span>
+
+          <label for="loginEmail">Password: </label>
+          <input
+            type="password"
+            id="loginPassword"
+            name="loginPassword"
+            placeholder="Enter Password"
+          />
+          <span id="passwordError" class="error"></span>
+
+          <button type="sumbit" class="">Login</button>
+
+        </form>
+
+        <form id="register" class="">
+            <h2>Register form</h2>
+
+            <label for="registerName">Full name:</label>
+            <input type="text" id="registerName" name="registerName" placeholder="Enter Name">
+
+            <label for="registerEmail">Email:</label>
+            <input type="text" id="registerEmail" name="registerEmail" placeholder="Enter Email">
+            <span id="emailError" class="error"></span>
+
+            <label for="registerPassword">Password:</label>
+            <input type="password" id="registerPassword" name="registerPassword" placeholder="Enter Password">
+            <span id="emailPassword" class="error"></span>
+
+            <label for="conformPassword">Conform Password:</label>
+            <input type="password" id="conformPassword" name="conformPassword" placeholder="Enter Same Password">
+            <span id="passwordError" class="error"></span>
+
+        </form>
+
+        </div>
+    </main>
+
+  </body>
+</html>
