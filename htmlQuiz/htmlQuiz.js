@@ -8,6 +8,7 @@ let htmlEasyQuiz = [];
 let htmlMediumQuiz = [];
 let htmlHardQuiz = [];
 
+let answers = [];
 let answersArr = [];
 
 //let globalArr = [];
@@ -37,26 +38,47 @@ const generateBannerUI = async () => {
   htmlEasyQuiz = await getQuestions(HTML_EASY_QUIZ_URL);
   console.log(htmlEasyQuiz);
   const { data } = htmlEasyQuiz;
-  console.log(data);
-  //   htmlEasyQuiz = data;
-  //   console.log(data);
+  //console.log(data[0].answers);
+  //console.log(Object.values(data[0].answers));
 
-  //console.log(data[9].answers);
-  for (x = 0; x < data.length; x++) {
-    // console.log(data[x].answers);
-    answersArr = data[x].answers;
-    console.log(answersArr);
+  for (x in data) {
+    answersArr = Object.keys(data[x]).map(function (_) {
+      return data[x][_];
+    });
+    // answersArr.filter((item, index) => answersArr.indexOf(item) === index);
   }
+  console.log(answersArr);
+
+  answers = Object.keys(answersArr[3]).map(function (_) {
+    return answersArr[3][_];
+  });
+
+  // answers.filter((item, index) => answers.indexOf(item) === index);
+
+  console.log(answers);
 
   const mainContainer = document.getElementById("testDiv");
   mainContainer.innerHTML = "";
-  data.forEach(({ question, answers }) => {
+  data.forEach(({ question, correct_answer }) => {
     // console.log(answersArr);
 
     mainContainer.innerHTML += `
                 <section class="questionAll">
                     <h1>${question}</h1>
-                    <div></div>
+                    <div id="answersDiv">${correct_answer}
+                    </div>
                     </section>`;
+  });
+
+  const answersDiv = document.getElementById("answersDiv");
+  answers.forEach((ele, index, arr) => {
+    answersDiv.innerHTML += `
+        <div>${answers[0]}</div>
+        <div>${answers[1]}</div>
+        <div>${answers[2]}</div>
+        <div>${answers[3]}</div>
+        <div>${answers[4]}</div>
+        <div>${answers[5]}</div>
+        </br>`;
   });
 };
