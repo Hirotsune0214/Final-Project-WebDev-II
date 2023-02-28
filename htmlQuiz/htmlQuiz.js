@@ -10,6 +10,8 @@ let htmlHardQuiz = [];
 
 let answers = [];
 let answersArr = [];
+let testArr = [];
+let finalTest = [];
 
 //let globalArr = [];
 
@@ -36,26 +38,15 @@ const getQuestions = async (url, keyword) => {
 const generateBannerUI = async () => {
   const testDiv = document.getElementById("testDiv");
   htmlEasyQuiz = await getQuestions(HTML_EASY_QUIZ_URL);
-  console.log(htmlEasyQuiz);
+  //console.log(htmlEasyQuiz);
   const { data } = htmlEasyQuiz;
   //console.log(data[0].answers);
   //console.log(Object.values(data[0].answers));
+  //console.log(data[0].answers);
 
-  for (x in data) {
-    answersArr = Object.keys(data[x]).map(function (_) {
-      return data[x][_];
-    });
-    // answersArr.filter((item, index) => answersArr.indexOf(item) === index);
-  }
-  console.log(answersArr);
-
-  answers = Object.keys(answersArr[3]).map(function (_) {
-    return answersArr[3][_];
-  });
+  //console.log(answersArr);
 
   // answers.filter((item, index) => answers.indexOf(item) === index);
-
-  console.log(answers);
 
   const mainContainer = document.getElementById("testDiv");
   mainContainer.innerHTML = "";
@@ -71,14 +62,33 @@ const generateBannerUI = async () => {
   });
 
   const answersDiv = document.getElementById("answersDiv");
-  answers.forEach((ele, index, arr) => {
+
+  for (x in data) {
+    //console.log("aaa", Object.values(data[x].answers));
+    // .map(function () {
+    answersArr = Object.values(data[x].answers);
+    console.log("aaa", answersArr);
+
+    for (let i = answersArr.length - 1; i >= 0; i--) {
+      if (answersArr[i] == null) {
+        answersArr.pop();
+      }
+    }
+    // });
+
+    console.log(answersArr);
+
+    // answers = Object.keys(answersArr[3]).map(function (_) {
+    //     return answersArr[3][_];
+    //   });
+
     answersDiv.innerHTML += `
-        <div>${answers[0]}</div>
-        <div>${answers[1]}</div>
-        <div>${answers[2]}</div>
-        <div>${answers[3]}</div>
-        <div>${answers[4]}</div>
-        <div>${answers[5]}</div>
-        </br>`;
-  });
+            <div>${answersArr[0]}</div>
+            <div>${answersArr[1]}</div>
+            <div>${answersArr[2]}</div>
+            <div>${answersArr[3]}</div>
+            <div>${answersArr[4]}</div>
+            <div>${answersArr[5]}</div>
+            </br>`;
+  }
 };
