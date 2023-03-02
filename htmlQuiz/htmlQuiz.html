@@ -13,8 +13,26 @@
     ></script>
   </head>
   <body>
-    <input type="radio" id="easyLevel" />Easy
+    <div>
+      <button type="button" onclick="easyLevel()" id="easyLevel">Easy</button>
+      <button type="button" onclick="mediumLevel()" id="mediumLevel">
+        Medium
+      </button>
+      <button type="button" onclick="hardLevel()" id="hardLevel">Hard</button>
+    </div>
+
     <div id="testDiv"></div>
     <script src="./htmlQuiz.js"></script>
   </body>
 </html>
+
+<!-- // for (let i = 0; i <= answers.length; i++) {
+  //   if (answers[i] === null) {
+  //     answers.slice(0, answers[i]);
+  //     console.log("aaa", answers);
+  //     const questionAll = document.getElementsByClassName("questionAll");
+  //     questionAll.innerHTML += `
+  //                     <button id="answersDiv">${answers[i]}
+  //                     </button>`;
+  //   }
+  // } -->
