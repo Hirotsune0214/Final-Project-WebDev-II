@@ -8,10 +8,7 @@ let htmlEasyQuiz = [];
 let htmlMediumQuiz = [];
 let htmlHardQuiz = [];
 
-let answers = [];
 let answersArr = [];
-let testArr = [];
-let finalTest = [];
 
 //let globalArr = [];
 
@@ -92,3 +89,5 @@ const generateBannerUI = async () => {
             </br>`;
   }
 };
+
+const easyLevel = document.getElementById("easyLevel");
