@@ -1,15 +1,11 @@
-// attrは、HTML 要素の様々な属性の値を取得や変更ができるメソッド
-// showTab is that tab shows or hidden 
-
 $(".registerButton").click(function (event) {
     showTab(event, $(this).attr("data-tab"));
 });
 
 function showTab(event, tabName) {
-    $(".loginButton").hide(); // hide HTML
-    $(".registerButton").removeClass("loginButton"); // remove class
-    // What does # mean??
-    $(`#${tabName}`).show(); // data-tab
+    $(".loginButton").hide(); 
+    $(".registerButton").removeClass("loginButton"); 
+    $(`#${tabName}`).show();
     console.log(event.currentTarget, "current Target");
     $(event.currentTarget).addClass("loginButton");
 
@@ -18,7 +14,6 @@ function showTab(event, tabName) {
 // login
 
 $("#login").submit(function (event) {
-    // preventDefault - 実行したイベントがキャンセル可能である場合、イベントをキャンセルするためのメソッド
     event.preventDefault();
 
     let lastName = $("#loginLastName").val();
@@ -74,7 +69,6 @@ $("#login").submit(function (event) {
 
 $("#register").submit(function (event) {
 
-    // If something isn't correct then cancel
     event.preventDefault();
 
     let lastName = $("#registerLastName").val();
@@ -91,8 +85,7 @@ $("#register").submit(function (event) {
         }, 3*1000);
     } else {
 
-        // Check name
-        if (!lastName) {
+                if (!lastName) {
             $("#registerLastName").text("Please enter appropriate characters");
         }
 
@@ -100,17 +93,15 @@ $("#register").submit(function (event) {
             $("#registerFirstName").text("Please enter appropriate characters");
         }
 
-        // check email
+        
         if (!validateEmail(email)) {
             $("#registerEmailError").text("Please enter a valid email address");
         }
 
-        // check password
         if (password.length < 8) {
             $("#registerPasswordError").text("Please enter a password which is bigger than 8");
         }
 
-        // check conform password
         if (conformPassword !== password) {
             $("#conformPasswordError").text("Please enter a same password");
         }
@@ -129,23 +120,16 @@ $("#register").submit(function (event) {
                 conformPassword,
             });
         }
-
-        /* if a user completes register then show "Welcome last name"
-        $("h1").html(`Welcome ${lastName}`);
-        
-        
-        */
-
     }
 });
 
 
-// /\S+@\S+\.\S+/はメールでエラーがなかった場合に表示
 function validateEmail(email) {
     let regex = /\S+@\S+\.\S+/;
     return regex.test(email);
 }
 
+// Doesn't work
 function lastName() {
     let lastNameRegex = /^[a-zA-Z]+$/;
     return lastNameRegex.test(lastName);
