@@ -147,11 +147,11 @@ function validateEmail(email) {
 }
 
 function lastName() {
-    let lastNameRegex = /\W/;
+    let lastNameRegex = /^[a-zA-Z]+$/;
     return lastNameRegex.test(lastName);
 }
 
 function firstName() {
-    let firstRegex = /\W/;
+    let firstRegex = /^[a-zA-Z]+$/;
     return firstRegex.test(firstName);
 }
