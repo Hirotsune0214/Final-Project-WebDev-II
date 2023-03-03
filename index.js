@@ -40,8 +40,8 @@ $("#login").submit(function (event) {
             $("#loginLastNameError").text("Please enter your Last Name");
         }
 
-        if (!!validateFirstName(firstName)) {
-            $("#loginFirstNameError").text("Please enter appropriate characters");
+        if (!validateFirstName(firstName)) {
+            $("#loginFirstNameError").text("Please enter your First Name");
         }
 
         if (!validateEmail(email)) {
@@ -81,12 +81,12 @@ $("#register").submit(function (event) {
 
     if (lastName && firstName && email && password && conformPassword) {
         if (!validateLastName(lastName)) {
-            $("#loginLastNameError").text("Please enter only alphabetical characters");
+            $("#registerLastNameError").text("Please enter only alphabetical characters");
             return;
         }
 
         if (!validateFirstName(firstName)) {
-            $("#loginFirstNameError").text("Please enter only alphabetical characters");
+            $("#registerFirstNameError").text("Please enter only alphabetical characters");
             return;
         }
         $("h1").html(`${lastName} Welcome!!`);
@@ -97,11 +97,11 @@ $("#register").submit(function (event) {
     } else {
 
         if (!validateLastName(lastName)) {
-            $("#registerLastNameError").text("Please enter appropriate characters");
+            $("#registerLastNameError").text("Please enter your Last Name");
         }
 
         if (!validateFirstName(firstName)) {
-            $("#registerFirstNameError").text("Please enter appropriate characters");
+            $("#registerFirstNameError").text("Please enter your First Name");
         }
 
         if (!validateEmail(email)) {
