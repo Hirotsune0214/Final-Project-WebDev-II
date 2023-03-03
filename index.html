@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Login&Register</title>
+    <link rel="stylesheet" href="style.css" />
+    <link href="https://fonts.cdnfonts.com/css/star-wars" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@1,300&display=swap" rel="stylesheet">   
+
+    <!-- Here doesn't work -->
+    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+    <script src="index.js"></script> -->
+  </head>
+  <body>
+
+    <nav>
+      <i class="fa-solid fa-house-chimney"></i>
+      <i class="fa-solid fa-right-to-bracket"></i>
+      <i class="fa-duotone fa-robot-astromech"></i>   
+    </nav>
+
+
+    <main>
+      <div class="container">
+        <img src="logo.png" alt="logo" class="center">
+        <section class="FirstPart">
+          <div class="btn">
+            <h1>Login & Register</h1>
+            <button data-tab="login" class="loginButton">Login</button>
+            <button data-tab="register" class="registerButton">Register</button>
+          </div>
+        </section>
+
+        <section class="SecondPart">
+          <form id="login" class="tabcontent">
+            <h2>Login form</h2>
+  
+            <label for="loginLastName">Last Name: </label>
+            <input
+              type="text"
+              id="loginLastName"
+              name="loginName"
+              placeholder="Enter Your Last Name"
+            />
+            <span id="lastNameError" class="error"></span>
+            
+  
+            <label for="loginFirstName">First Name: </label>
+            <input
+              type="text"
+              id="loginFirstName"
+              name="loginName"
+              placeholder="Enter Your First Name"
+            />
+            <span id="firstNameError" class="error"></span>
+  
+            <label for="loginEmail">Email: </label>
+            <input
+              type="text"
+              id="loginEmail"
+              name="loginEmail"
+              placeholder="Enter Email"
+            />
+            <span id="emailError" class="error"></span>
+  
+            <label for="loginEmail">Password: </label>
+            <input
+              type="password"
+              id="loginPassword"
+              name="loginPassword"
+              placeholder="Enter Password"
+            />
+            <span id="passwordError" class="error"></span>
+  
+            <button type="sumbit" class="loginButton">Login</button>
+  
+          </form>
+        </section>
+
+
+        <!-- *************************** Register ***************************************           -->
+        <section class="ThirdPart">
+          <form id="register" class="tabcontent">
+            <h2>Register form</h2>
+
+            <section>
+              <label for="registerLastName">Last Name:</label>
+              <input type="text" id="registerLastName" name="registerLastName" placeholder="Enter Last Name">
+              <span id="fullNameError" class="error">
+            </section>
+            
+            <section>
+              <label for="registerFirstName">First name:</label>
+              <input type="text" id="registerFirstName" name="registerFirstName" placeholder="Enter First Name">
+              <span id="fullNameError" class="error">
+            </section>
+             
+            <section>
+              <label for="registerEmail">Email:</label>
+              <input type="text" id="registerEmail" name="registerEmail" placeholder="Enter Email">
+              <span id="registerEmailError" class="error"></span>
+            </section>
+
+            <section>
+              <label for="registerPassword">Password:</label>
+              <input type="password" id="registerPassword" name="registerPassword" placeholder="Enter Password">
+              <span id="registerPasswordError" class="error"></span>
+            </section>
+            
+            <section>
+              <label for="conformPassword">Conform Password:</label>
+              <input type="password" id="conformPassword" name="conformPassword" placeholder="Enter Same Password">
+              <span id="conformPasswordError" class="error"></span>
+            </section>
+  
+    
+            <button type="submit" class="registerButton">Register</button>
+  
+        </form>
+        </section>
+        </div>
+    </main>
+    
+
+    <footer>
+      <section>
+        <div class="icons">
+          <i class="fa-brands fa-facebook"></i>
+          <i class="fa-brands fa-twitter"></i>
+          <i class="fa-brands fa-google"></i>
+          <i class="fa-brands fa-instagram"></i>
+          <i class="fa-brands fa-github"></i>
+        </div>
+      </section>
+
+      <section id="texto">
+        <div >
+          <h3>© 2020 Copyright</h3>
+        </div>
+      </section>
+
+      
+    </footer>
+    
+    <!-- Here works -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+    <script src="index.js"></script>
+    <script src="https://kit.fontawesome.com/c2ec89d290.js" crossorigin="anonymous"></script>
+
+  </body>
+</html>
