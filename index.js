@@ -115,7 +115,7 @@ $("#register").submit(function (event) {
             $("#conformPasswordError").text("Please enter the same password");
         }
 
-        if (validateLastName(lastName) && validatefirstName(firstName) && validateEmail(email) && password.length > 8 && conformPassword !== password) {
+        if (validateLastName(lastName) && validateFirstName(firstName) && validateEmail(email) && password.length > 8 && conformPassword !== password) {
             $("#registerLastNameError").text("");
             $("#registerFirstNameError").text("");
             $("#registerEmailError").text("");
