@@ -30,7 +30,7 @@
             name="loginName"
             placeholder="Enter Your Last Name"
           />
-          <span id="lastNameError" class="error"></span>
+          <span id="loginLastNameError" class="error"></span>
           
 
           <label for="loginFirstName">First Name: </label>
@@ -40,7 +40,7 @@
             name="loginName"
             placeholder="Enter Your First Name"
           />
-          <span id="firstNameError" class="error"></span>
+          <span id="loginFirstNameError" class="error"></span>
 
           <label for="loginEmail">Email: </label>
           <input
@@ -65,16 +65,17 @@
         </form>
 
         <!-- *************************** Register ***************************************           -->
+
         <form id="register" class="tabcontent">
             <h2>Register form</h2>
 
             <label for="registerLastName">Last Name:</label>
             <input type="text" id="registerLastName" name="registerLastName" placeholder="Enter Last Name">
-            <span id="fullNameError" class="error">
+            <span id="registerLastNameError" class="error"></span>
               
               <label for="registerFirstName">First name:</label>
               <input type="text" id="registerFirstName" name="registerFirstName" placeholder="Enter First Name">
-              <span id="fullNameError" class="error">
+              <span id="registerFirstNameError" class="error"></span>
 
             <label for="registerEmail">Email:</label>
             <input type="text" id="registerEmail" name="registerEmail" placeholder="Enter Email">
@@ -85,7 +86,7 @@
             <span id="registerPasswordError" class="error"></span>
 
             <label for="conformPassword">Conform Password:</label>
-            <input type="password" id="conformPassword" name="conformPassword" placeholder="Enter Same Password">
+            <input type="password" id="conformPassword" name="conformPassword" placeholder="Enter the Same Password">
             <span id="conformPasswordError" class="error"></span>
 
             <button type="submit" class="registerButton">Register</button>

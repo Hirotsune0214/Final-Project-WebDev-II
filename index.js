@@ -3,8 +3,8 @@ $(".registerButton").click(function (event) {
 });
 
 function showTab(event, tabName) {
-    $(".loginButton").hide(); 
-    $(".registerButton").removeClass("loginButton"); 
+    $(".loginButton").hide();
+    $(".registerButton").removeClass("loginButton");
     $(`#${tabName}`).show();
     console.log(event.currentTarget, "current Target");
     $(event.currentTarget).addClass("loginButton");
@@ -21,21 +21,27 @@ $("#login").submit(function (event) {
     let email = $("#loginEmail").val();
     let password = $("#loginPassword").val();
 
-
     if (lastName && firstName && email && password) {
-        $("h1").html(`${lastName} Welcome Back`);
-        setTimeout(function() {
-        window.location = "https://www.google.co.jp";
-    }, 3*1000);
-    } else {
-
-
-        if (!lastName) {
-            $("#lastNameError").text("Please enter appropriate characters");
+        if (!validateLastName(lastName)) {
+            $("#loginLastNameError").text("Please enter only alphabetical characters");
+            return;
         }
 
-        if (!firstName) {
-            $("#firstNameError").text("Please enter appropriate characters");
+        if (!validateFirstName(firstName)) {
+            $("#loginFirstNameError").text("Please enter only alphabetical characters");
+            return;
+        }
+        $("h1").html(`${lastName} Welcome Back`);
+        setTimeout(function () {
+            window.location = "https://www.google.co.jp";
+        }, 3 * 1000);
+    } else {
+        if (!validateLastName(lastName)) {
+            $("#loginLastNameError").text("Please enter your Last Name");
+        }
+
+        if (!!validateFirstName(firstName)) {
+            $("#loginFirstNameError").text("Please enter appropriate characters");
         }
 
         if (!validateEmail(email)) {
@@ -46,9 +52,9 @@ $("#login").submit(function (event) {
             $("#passwordError").text("Please enter a password which is bigger than 8 characters");
         }
 
-        if (lastName && firstName && validateEmail(email) && password.length > 8) {
-            $("#lastNameError").text("");
-            $("#firstNameError").text("");
+        if (validateLastName(lastName) && validatefirstName(firstName) && validateEmail(email) && password.length > 8) {
+            $("#loginLastNameError").text("");
+            $("#loginFirstNameError").text("");
             $("#emailError").text("");
             $("#passwordError").text("");
             console.log({
@@ -58,12 +64,8 @@ $("#login").submit(function (event) {
                 password,
             });
         }
-
     }
 });
-
-
-
 
 // register
 
@@ -78,37 +80,44 @@ $("#register").submit(function (event) {
     let conformPassword = $("#conformPassword").val();
 
     if (lastName && firstName && email && password && conformPassword) {
+        if (!validateLastName(lastName)) {
+            $("#loginLastNameError").text("Please enter only alphabetical characters");
+            return;
+        }
+
+        if (!validateFirstName(firstName)) {
+            $("#loginFirstNameError").text("Please enter only alphabetical characters");
+            return;
+        }
         $("h1").html(`${lastName} Welcome!!`);
 
-        setTimeout(function() {
+        setTimeout(function () {
             window.location = "https://www.google.co.jp";
-        }, 3*1000);
+        }, 3 * 1000);
     } else {
 
-                if (!lastName) {
-            $("#registerLastName").text("Please enter appropriate characters");
+        if (!validateLastName(lastName)) {
+            $("#registerLastNameError").text("Please enter appropriate characters");
         }
 
-        if (!firstName) {
-            $("#registerFirstName").text("Please enter appropriate characters");
+        if (!validateFirstName(firstName)) {
+            $("#registerFirstNameError").text("Please enter appropriate characters");
         }
 
-        
         if (!validateEmail(email)) {
             $("#registerEmailError").text("Please enter a valid email address");
         }
-
         if (password.length < 8) {
             $("#registerPasswordError").text("Please enter a password which is bigger than 8");
         }
 
         if (conformPassword !== password) {
-            $("#conformPasswordError").text("Please enter a same password");
+            $("#conformPasswordError").text("Please enter the same password");
         }
 
-        if (lastName && firstName && validateEmail(email) && password.length > 8 && conformPassword !== password) {
-            $("#lastNameError").text("");
-            $("#firstNameError").text("");
+        if (validateLastName(lastName) && validatefirstName(firstName) && validateEmail(email) && password.length > 8 && conformPassword !== password) {
+            $("#registerLastNameError").text("");
+            $("#registerFirstNameError").text("");
             $("#registerEmailError").text("");
             $("#registerPasswordError").text("");
             $("#conformPasswordError").text("");
@@ -123,19 +132,23 @@ $("#register").submit(function (event) {
     }
 });
 
-
 function validateEmail(email) {
     let regex = /\S+@\S+\.\S+/;
     return regex.test(email);
 }
 
-// Doesn't work
-function lastName() {
+function validateLastName(lastName) {
+    if (!lastName) {
+        return false;
+    }
     let lastNameRegex = /^[a-zA-Z]+$/;
     return lastNameRegex.test(lastName);
 }
 
-function firstName() {
-    let firstRegex = /^[a-zA-Z]+$/;
-    return firstRegex.test(firstName);
+function validateFirstName(firstName) {
+    if (!firstName) {
+        return false;
+    }
+    let firstNameRegex = /^[a-zA-Z]+$/;
+    return firstNameRegex.test(firstName);
 }
