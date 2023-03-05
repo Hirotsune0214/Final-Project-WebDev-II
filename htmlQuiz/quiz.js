@@ -1,23 +1,24 @@
 const config = {
   baseUrl: "https://quizapi.io/api/v1/",
   apiKey: "0IvOovvtGqNGpHAvebdLNRkq1oScfvOrMQYsQFlS",
+  questionsAmount: "10",
   tags: "Linux",
 };
 
-let htmlEasyQuiz = [];
-let htmlMediumQuiz = [];
-let htmlHardQuiz = [];
+let easyQuiz = [];
+let mediumQuiz = [];
+let hardQuiz = [];
 
 let answersArr = [];
 let getAnswerArr = [];
 
 const mainContainer = document.getElementById("testDiv");
 
-const HTML_EASY_QUIZ_URL = `${config.baseUrl}questions?apiKey=${config.apiKey}&difficulty=Easy&limit=10&tags=${config.tags}`;
-const HTML_MEDIUM_QUIZ_URL = `${config.baseUrl}questions?apiKey=${config.apiKey}&difficulty=Medium&limit=10&tags=${config.tags}`;
-const HTML_HARD_QUIZ_URL = `${config.baseUrl}questions?apiKey=${config.apiKey}&difficulty=Hard&limit=10&tags=${config.tags}`;
+const EASY_QUIZ_URL = `${config.baseUrl}questions?apiKey=${config.apiKey}&difficulty=Easy&limit=${config.questionsAmount}&tags=${config.tags}`;
+const MEDIUM_QUIZ_URL = `${config.baseUrl}questions?apiKey=${config.apiKey}&difficulty=Medium&limit=${config.questionsAmount}&tags=${config.tags}`;
+const HARD_QUIZ_URL = `${config.baseUrl}questions?apiKey=${config.apiKey}&difficulty=Hard&limit=${config.questionsAmount}&tags=${config.tags}`;
 
-const getQuestions = async (url, keyword) => {
+const getQuestions = async (url) => {
   return await axios.get(url);
 };
 
@@ -28,10 +29,10 @@ const clickMe = (answer) => {
 };
 
 const renderQuestion = (question) => {
-  const container = document.getElementById("testDiv");
+  //const container = document.getElementById("testDiv");
   const title = document.createElement("h1");
   title.textContent = question;
-  container.append(title);
+  mainContainer.append(title);
 };
 
 const renderAnswers = (answers, question, correct_answers) => {
@@ -56,8 +57,11 @@ const renderAnswers = (answers, question, correct_answers) => {
 };
 
 const generateEasyUI = async () => {
-  htmlEasyQuiz = await getQuestions(HTML_EASY_QUIZ_URL);
-  const { data } = htmlEasyQuiz;
+  easyQuiz = await getQuestions(EASY_QUIZ_URL);
+  const { data } = easyQuiz;
+
+  mainContainer.innerHTML = "";
+
   data.forEach(({ question, answers, correct_answers }) => {
     renderQuestion(question);
     renderAnswers(answers, question, correct_answers);
@@ -68,14 +72,77 @@ const generateEasyUI = async () => {
   countScoreButton.textContent = "Done";
   countScoreButton.onclick = countScore;
   testDiv.append(countScoreButton);
+
+  getAnswerArr = [];
 };
 
+const generateMediumUI = async () => {
+  mediumQuiz = await getQuestions(MEDIUM_QUIZ_URL);
+  const { data } = mediumQuiz;
+
+  mainContainer.innerHTML = "";
+
+  data.forEach(({ question, answers, correct_answers }) => {
+    renderQuestion(question);
+    renderAnswers(answers, question, correct_answers);
+  });
+  const countScoreButton = document.createElement("button");
+  countScoreButton.id = "countScoreButton";
+  countScoreButton.type = "button";
+  countScoreButton.textContent = "Done";
+  countScoreButton.onclick = countScore;
+  testDiv.append(countScoreButton);
+
+  getAnswerArr = [];
+};
+
+const generateHardUI = async () => {
+  hardQuiz = await getQuestions(HARD_QUIZ_URL);
+  const { data } = hardQuiz;
+
+  mainContainer.innerHTML = "";
+
+  data.forEach(({ question, answers, correct_answers }) => {
+    renderQuestion(question);
+    renderAnswers(answers, question, correct_answers);
+  });
+  const countScoreButton = document.createElement("button");
+  countScoreButton.id = "countScoreButton";
+  countScoreButton.type = "button";
+  countScoreButton.textContent = "Done";
+  countScoreButton.onclick = countScore;
+  testDiv.append(countScoreButton);
+
+  getAnswerArr = [];
+};
+
+//let x = false;
 function countScore() {
   console.log(getAnswerArr);
   getAnswerArr = getAnswerArr.filter((e) => e == "true");
   alert("Your score is " + getAnswerArr.length + "!");
+
+  // if ((x = false)) {
+  //   getAnswerArr = [];
+  //   x = true;
+  // }
+  console.log(getAnswerArr);
+
+  doReload();
+}
+
+function doReload() {
+  window.location.reload();
 }
 
 const easyLevel = () => {
   generateEasyUI();
+};
+
+const mediumLevel = () => {
+  generateMediumUI();
+};
+
+const hardLevel = () => {
+  generateHardUI();
 };
