@@ -1,0 +1,137 @@
+body{
+    /*background-color: #1e102c;*/
+    background-image: url("https://images.pexels.com/photos/998641/pexels-photo-998641.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1");
+    background-size: contain;
+    margin: 0%;
+}
+
+nav{
+    background-color: #ffd700;
+}
+
+
+
+.center{
+    margin-top:20dvh;
+    margin-left: 60dvh;
+    
+
+}
+
+.FirstPart{
+    display: block;
+    margin: 40dvb;
+    padding: 20px 20px;
+    border-radius: 10px;
+    background-color: rgb(218 219 82 / 15%);
+    border: 5px solid #ffd700;
+    font-family: 'Star Wars', sans-serif;
+    color: #ffd700;
+
+}
+
+.SecondPart{
+    background-color: rgb(218 219 82 / 15%);
+    border: 5px solid #ffd700;
+    margin-top: 50dvb;
+    padding: 20px 20px;
+    border-radius: 10px;
+}
+
+.ThirdPart{
+    background-color: rgb(218 219 82 / 15%);
+    border: 5px solid #ffd700;
+    margin-top: 50dvb;
+    padding: 20px 20px;
+    border-radius: 10px;
+}
+
+.btn{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#login{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: white;
+    font-family: 'Roboto Mono', monospace;
+}
+#register{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: white;
+    font-family: 'Roboto Mono', monospace;
+}
+
+.loginButton:hover{
+    background: #ffd700;
+    text-decoration: none;
+}
+
+.loginButton{
+    padding: 10px 40px;
+    margin: 10px;
+    background-color: transparent;
+    border: 2px solid #ffd700;
+    color: white;
+    border-radius: 5px;
+    font-family: 'Roboto Mono', monospace;
+}
+
+.registerButton{
+    padding: 10px 40px;
+    margin: 10px;
+    background-color: transparent;
+    border: 2px solid #ffd700;
+    color: white;
+    border-radius: 5px;
+    font-family: 'Roboto Mono', monospace;
+}
+
+.registerButton:hover{
+    background: #ffd700;
+    text-decoration: none;
+}
+
+#register h2{
+    font-family: 'Star Wars', sans-serif;
+    color: #ffd700;
+}
+
+#login h2{
+    font-family: 'Star Wars', sans-serif;
+    color: #ffd700;
+}
+
+#login input{
+    margin: 20px;
+    background-color: transparent;
+    border-right: 2px solid #ffd700;
+    border-bottom: 2px solid #ffd700;
+
+}
+
+#register input{
+    margin: 20px;
+    background-color: transparent;
+    border-right: 2px solid #ffd700;
+    border-bottom: 2px solid #ffd700;
+}
+
+footer{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #ffd700;
+    color: white;
+    margin-top: 30px;
+}
+
+.icons{
+    padding-top: 20px;
+}
+
